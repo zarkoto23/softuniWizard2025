@@ -1,6 +1,6 @@
 //initialization game state
 const state = {
-  player: "Pesho",
+  player: "Navcho",
   wizard: {
     x: 100,
     y: 100,
@@ -41,6 +41,8 @@ const factory = {
 
 //game frames
 function newFrame() {
+
+  //!!!!!!!! do tuk
 
 }
 
