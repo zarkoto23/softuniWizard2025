@@ -15,6 +15,7 @@ const factory = {
   createWizard(wizard) {
     //create El
     const wizardElement = document.createElement("div");
+    wizardElement.classList.add("wizard");
 
     //set styles
     wizardElement.style.width = wizard.width + "px";
@@ -24,13 +25,13 @@ const factory = {
     wizardElement.style.backgroundRepeat = "no-repeat";
     wizardElement.style.backgroundPosition = "center";
 
-    gameArea.appendChild(wizardElement)
+    gameArea.appendChild(wizardElement);
 
     //set position
 
-    wizardElement.style.position='absolute'
-    wizardElement.style.left=wizard.x+'px'
-    wizardElement.style.top=wizard.y+'px'
+    wizardElement.style.position = "absolute";
+    wizardElement.style.left = wizard.x + "px";
+    wizardElement.style.top = wizard.y + "px";
 
     //attach to dom
   },
@@ -41,9 +42,9 @@ const factory = {
 
 //game frames
 function newFrame() {
-
-  //!!!!!!!! do tuk
-
+  const wizardElement = document.querySelector(".wizard");
+  wizardElement.style.left = `${state.wizard.x++}px`;
+  window.requestAnimationFrame(newFrame);
 }
 
 const startElement = document.querySelector(".game-start");
@@ -51,6 +52,7 @@ startElement.addEventListener("click", (e) => {
   e.currentTarget.classList.add("hidden");
 
   factory.createWizard(state.wizard);
+  window.requestAnimationFrame(newFrame);
 });
 
 // init game
