@@ -7,6 +7,7 @@ const state = {
     width: 50,
     height: 50,
   },
+  isGameOver:false
 };
 
 //obj creation
@@ -44,7 +45,9 @@ const factory = {
 function newFrame() {
   const wizardElement = document.querySelector(".wizard");
   wizardElement.style.left = `${state.wizard.x++}px`;
+  if(!state.isGameOver){
   window.requestAnimationFrame(newFrame);
+  }
 }
 
 const startElement = document.querySelector(".game-start");
