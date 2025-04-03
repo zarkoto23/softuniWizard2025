@@ -5,6 +5,7 @@ export { newFrame }; //
 
 
 const gameScore=document.querySelector('.game-score')
+const gameArea=document.querySelector('.game-area')
 
 //game frames
 function newFrame() {
@@ -14,7 +15,12 @@ function newFrame() {
   //wizard fire movement
   const fireballs=document.querySelectorAll('.fireball')
   for(const fireball of fireballs){
+    if(fireball.offsetLeft>gameArea.offsetWidth){
+      fireball.remove()
+    } else{
     fireball.style.left=fireball.offsetLeft+config.magicSpeed+'px'
+
+    }
   }
 
 
@@ -29,7 +35,6 @@ function newFrame() {
 // TODO: Fix accelerration on diagonals
 function modifyWizardPosition(){
   const wizardElement = document.querySelector(".wizard");
-  const gameArea=document.querySelector('.game-area')
   const {wizard} =state
   //wizard moves
 
