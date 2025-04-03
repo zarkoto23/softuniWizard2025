@@ -40,8 +40,9 @@ function newFrame() {
 
     //chek collision
     const hasCollision=checkCollision(wizardElement,bug)
-    console.log(hasCollision)
-    
+    if(hasCollision){
+      state.isGameOver=true
+    }
 
     //bug move
     bug.style.left=bug.offsetLeft-config.bugSpeed+'px'
@@ -56,6 +57,10 @@ function newFrame() {
 
   if (!state.isGameOver) {
     window.requestAnimationFrame(newFrame);
+
+  }else{
+    const gameOverArea=document.querySelector('.game-over')
+    gameOverArea.classList.remove('hidden')
   }
 }
   //colision detection
