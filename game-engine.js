@@ -10,7 +10,7 @@ const gameArea=document.querySelector('.game-area')
 //game frames
 function newFrame() {
   //move wizard
-  modifyWizardPosition()
+ const wizardElement=modifyWizardPosition()
 
   //wizard fire movement
   const fireballs=document.querySelectorAll('.fireball')
@@ -24,7 +24,7 @@ function newFrame() {
   }
 
   //create bugs
-  if(state.lastBugSpawn+state.maxBugSpawnTime*Math.random()>Date.now()){
+  if(state.lastBugSpawn+state.maxBugSpawnTime*Math.random()<Date.now()){
   factory.createBug()
   state.lastBugSpawn=Date.now()
   }
@@ -33,8 +33,22 @@ function newFrame() {
 
   const bugs=document.querySelectorAll('.bug')
   bugs.forEach(bug=>{
+    //remove outside Bugs
+    if(bug.offsetLeft<0){
+       return bug.remove()
+    }
+
+    //chek collision
+    const hasCollision=checkCollision(wizardElement,bug)
+    console.log(hasCollision)
+    
+
+    //bug move
     bug.style.left=bug.offsetLeft-config.bugSpeed+'px'
   })
+
+
+
 
   //aplly score
   state.score+=config.timePoints;
@@ -44,6 +58,22 @@ function newFrame() {
     window.requestAnimationFrame(newFrame);
   }
 }
+  //colision detection
+function checkCollision(firstElement, secondElement){
+const first=firstElement.getBoundingClientRect()
+const second=secondElement.getBoundingClientRect()
+
+const hasCollision=!(first.top>second.bottom
+||first.bottom<second.top
+||first.right<second.left
+||first.left>second.right
+)
+return hasCollision
+}
+
+
+
+
 // TODO: Fix accelerration on diagonals
 function modifyWizardPosition(){
   const wizardElement = document.querySelector(".wizard");
@@ -70,6 +100,8 @@ function modifyWizardPosition(){
   }else{
     wizardElement.style.backgroundImage='url("images/wizard.png")'
   }
+  return wizardElement
+
 
 }
 export const engine = {
