@@ -11,7 +11,11 @@ function newFrame() {
   //move wizard
   modifyWizardPosition()
 
-  //wizard fire
+  //wizard fire movement
+  const fireballs=document.querySelectorAll('.fireball')
+  for(const fireball of fireballs){
+    fireball.style.left=fireball.offsetLeft+config.magicSpeed+'px'
+  }
 
 
   //aplly score

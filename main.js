@@ -10,6 +10,7 @@ const startElement = document.querySelector(".game-start");
 startElement.addEventListener("click", (e) => {
   e.currentTarget.classList.add("hidden");
 
+
   factory.createWizard(state.wizard);
   window.requestAnimationFrame(newFrame);
   engine.start()

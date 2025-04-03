@@ -1,6 +1,5 @@
 export const config={
-  speed:3,
+  speed:2,
   timePoints:1,
-
-
+  magicSpeed:5,
 }
