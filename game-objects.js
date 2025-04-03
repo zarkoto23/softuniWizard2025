@@ -23,4 +23,24 @@ export const factory = {
     //attach to dom
     gameArea.appendChild(wizardElement);
   },
+
+  createFireball(wizard) {
+    const fireballElement = document.createElement("div");
+    fireballElement.classList.add("fireball");
+
+    fireballElement.style.backgroundImage = 'url("images/fire-ball.png")';
+    fireballElement.style.backgroundSize = "contain";
+    fireballElement.style.backgroundRepeat = "no-repeat";
+    fireballElement.style.backgroundPosition = "center";
+    fireballElement.style.width = "20px";
+    fireballElement.style.height = "20px";
+    fireballElement.style.position = "absolute";
+
+   // TODO:adjustment fireball postition
+
+    fireballElement.style.left = wizard.x + wizard.width+'px';
+    fireballElement.style.top = wizard.y + wizard.width / 2+'px';
+
+    gameArea.appendChild(fireballElement);
+  },
 };

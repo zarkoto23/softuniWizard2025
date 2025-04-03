@@ -5,11 +5,11 @@ export const state = {
   wizard: {
     x: 100,
     y: 100,
-    width: 50,
-    height: 50,
+    width: 75,
+    height: 75,
   },
   isGameOver: false,
-  points: 0,
+  score: 0,
   controls: {
     KeyA: false,
     KeyS: false,
