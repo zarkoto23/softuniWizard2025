@@ -19,6 +19,8 @@ export const state = {
     KeyW: false,
     Space: false,
   },
+  lastBugCration:0,
+  maxBugSpawnTime:2000,
  
 
 };

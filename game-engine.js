@@ -23,6 +23,18 @@ function newFrame() {
     }
   }
 
+  //create bugs
+  if(state.lastBugSpawn+state.maxBugSpawnTime*Math.random()>Date.now()){
+  factory.createBug()
+  state.lastBugSpawn=Date.now()
+  }
+
+  //move bugs
+
+  const bugs=document.querySelectorAll('.bug')
+  bugs.forEach(bug=>{
+    bug.style.left=bug.offsetLeft-config.bugSpeed+'px'
+  })
 
   //aplly score
   state.score+=config.timePoints;
