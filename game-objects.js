@@ -23,16 +23,15 @@ export const factory = {
     //attach to dom
     gameArea.appendChild(wizardElement);
   },
-
   createFireball(wizard) {
     //checkCooldown
-    if(wizard.lastMagicUse+wizard.coolDown>Date.now()){
-      return
+    if (wizard.lastMagicUse + wizard.coolDown > Date.now()) {
+      return;
     }
-//createEl
+    //createEl
     const fireballElement = document.createElement("div");
     fireballElement.classList.add("fireball");
-//styles
+    //styles
     fireballElement.style.backgroundImage = 'url("images/fire-ball.png")';
     fireballElement.style.backgroundSize = "contain";
     fireballElement.style.backgroundRepeat = "no-repeat";
@@ -40,21 +39,19 @@ export const factory = {
     fireballElement.style.width = "20px";
     fireballElement.style.height = "20px";
     fireballElement.style.position = "absolute";
-// TODO:adjustment fireball postition
+    // TODO:adjustment fireball postition
 
-    fireballElement.style.left = wizard.x + wizard.width+'px';
-    fireballElement.style.top = wizard.y + wizard.width / 2+'px';
+    fireballElement.style.left = wizard.x + wizard.width + "px";
+    fireballElement.style.top = wizard.y + wizard.width / 2 + "px";
 
-    wizard.lastMagicUse=Date.now()
-
+    wizard.lastMagicUse = Date.now();
 
     gameArea.appendChild(fireballElement);
   },
 
-  createBug(){
-
-    const bugElement=document.createElement('div')
-    bugElement.classList.add('bug')
+  createBug() {
+    const bugElement = document.createElement("div");
+    bugElement.classList.add("bug");
 
     bugElement.style.backgroundImage = 'url("images/bug.png")';
     bugElement.style.backgroundSize = "contain";
@@ -63,15 +60,12 @@ export const factory = {
     bugElement.style.width = "20px";
     bugElement.style.height = "20px";
     bugElement.style.position = "absolute";
-  
-      //set positions
-      bugElement.style.left=gameArea.offsetWidth+'px'
-      bugElement.style.top=Math.random()*(gameArea.offsetHeight-10) +'px'
 
+    //set positions
+    bugElement.style.left = gameArea.offsetWidth + "px";
+    bugElement.style.top = Math.random() * (gameArea.offsetHeight - 10) + "px";
 
     //append to dom
-    gameArea.appendChild(bugElement)
-
-
-  }
+    gameArea.appendChild(bugElement);
+  },
 };

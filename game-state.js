@@ -7,20 +7,22 @@ export const state = {
     y: 100,
     width: 75,
     height: 75,
-    lastMagicUse:0,
-    coolDown:500,
+    lastMagicUse: 0,
+    coolDown: 500,
   },
   isGameOver: false,
   score: 0,
   controls: {
+    ArrowLeft: false,
+    ArrowDown: false,
+    ArrowRight: false,
+    ArrowUp: false,
     KeyA: false,
     KeyS: false,
     KeyD: false,
     KeyW: false,
     Space: false,
   },
-  lastBugSpawn:0,
-  maxBugSpawnTime:2000,
- 
-
+  lastBugSpawn: 0,
+  maxBugSpawnTime: 20000,
 };
