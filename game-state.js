@@ -12,7 +12,7 @@ export const state = {
   points: 0,
   controls: {
     KeyA: false,
-    keyS: false,
+    KeyS: false,
     KeyD: false,
     KeyW: false,
     Space: false,
