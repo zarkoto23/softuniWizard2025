@@ -7,6 +7,8 @@ export const state = {
     y: 100,
     width: 75,
     height: 75,
+    lastMagicUse:0,
+    coolDown:500,
   },
   isGameOver: false,
   score: 0,
@@ -17,4 +19,6 @@ export const state = {
     KeyW: false,
     Space: false,
   },
+ 
+
 };
